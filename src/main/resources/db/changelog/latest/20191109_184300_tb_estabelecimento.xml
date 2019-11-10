@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd  http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+	<changeSet id="20191109_184300" author="Leandro Zanatta" logicalFilePath="20191109_184300_tb_estabelecimento.xml">
+		<preConditions onFail="CONTINUE">
+			<not>
+				<tableExists tableName="tb_estabelecimento" />
+			</not>
+		</preConditions>
+		<createTable tableName="tb_estabelecimento">
+			<column name="id_estabelecimento" type="NUMBER(18,0)" remarks="CÓDIGO INDENTIFICADOR">
+				<constraints primaryKey="true" primaryKeyName="estabelecimento_pk" nullable="false" />
+			</column>
+			<column name="tx_descricao" type="VARCHAR(100)" remarks="DESCRIÇÃO DO ESTADO">
+				<constraints nullable="false" />
+			</column>
+
+		</createTable>
+
+		<createSequence sequenceName="gen_estabelecimento" />
+
+	</changeSet>
+</databaseChangeLog>
